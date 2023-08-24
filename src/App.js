@@ -171,7 +171,7 @@ const NumberRender = ({ data, arrPos }) => {
   return (
     <div
       style={{
-        backgroundColor: arrPos.includes(data.number) ? "red" : "yellow",
+        backgroundColor: arrPos.includes(data.number) ? "black" : "white",
         color: arrPos.includes(data.number) ? "white" : "black",
         padding: 20,
         borderRadius: "50%",
