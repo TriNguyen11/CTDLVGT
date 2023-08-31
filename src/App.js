@@ -2,27 +2,62 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 
-const arr = [
-  { number: 2, top: 0, left: 10, valueNest: [12, 62, 23] },
-  { number: 12, top: 100, left: -100, valueNest: [612, 888, 574] },
-  { number: 62, top: 100, left: 0, valueNest: [11, 201] },
-  { number: 23, top: 100, left: 100, valueNest: [147, 600, 302] },
-
-  { number: 612, top: 80, left: -250, valueNest: [] },
-  { number: 888, top: 150, left: -240, valueNest: [] },
-  { number: 574, top: 180, left: -180, valueNest: [] },
-
-  { number: 11, top: 250, left: -80, valueNest: [145] },
-  // { number: 19, top: 280, left: -20, valueNest: [] },
-  { number: 201, top: 250, left: 40, valueNest: [] },
-
-  { number: 147, top: 200, left: 250, valueNest: [] },
-  { number: 600, top: 120, left: 280, valueNest: [] },
-  { number: 302, top: 50, left: 250, valueNest: [] },
-
-  { number: 145, top: 350, left: -100, valueNest: [] },
-];
 function App() {
+  const [arrRandom, setArrRamdom] = useState([
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+    Math.round(Math.random() * 1000),
+  ]);
+  const arr = [
+    {
+      number: arrRandom[0],
+      top: 0,
+      left: 10,
+      valueNest: [arrRandom[1], arrRandom[2], arrRandom[3]],
+    },
+    {
+      number: arrRandom[1],
+      top: 100,
+      left: -100,
+      valueNest: [arrRandom[4], arrRandom[5], arrRandom[6]],
+    },
+    {
+      number: arrRandom[2],
+      top: 100,
+      left: 0,
+      valueNest: [arrRandom[7], arrRandom[8]],
+    },
+    {
+      number: arrRandom[3],
+      top: 100,
+      left: 100,
+      valueNest: [arrRandom[9], arrRandom[10], arrRandom[11]],
+    },
+
+    { number: arrRandom[4], top: 80, left: -250, valueNest: [] },
+    { number: arrRandom[5], top: 150, left: -240, valueNest: [] },
+    { number: arrRandom[6], top: 180, left: -180, valueNest: [] },
+
+    { number: arrRandom[7], top: 250, left: -80, valueNest: [arrRandom[12]] },
+    // { number: 19, top: 280, left: -20, valueNest: [] },
+    { number: arrRandom[8], top: 250, left: 40, valueNest: [] },
+
+    { number: arrRandom[9], top: 200, left: 250, valueNest: [] },
+    { number: arrRandom[10], top: 120, left: 280, valueNest: [] },
+    { number: arrRandom[11], top: 50, left: 250, valueNest: [] },
+
+    { number: arrRandom[12], top: 350, left: -100, valueNest: [] },
+  ];
   const [arrPos, setArrPos] = useState([arr[0].number]);
   const [findNumber, setFindNumber] = useState();
   const [step, setStep] = useState(0);
@@ -140,6 +175,32 @@ function App() {
           }}></input>
       </div>
 
+      {/* <button
+        style={{
+          marginTop: 20,
+          fontSize: 16,
+          padding: "5px 10px",
+          borderRadius: 12,
+        }}
+        onClick={async () => {
+          setArrRamdom(
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100),
+            Math.round(Math.random() * 100)
+          );
+        }}>
+        Đổi số khác
+      </button> */}
       <button
         style={{
           marginTop: 20,
