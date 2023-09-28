@@ -86,6 +86,16 @@ function App() {
       // setArrPos([arr[0].number]);
     }
   }, [arrPos]);
+  useEffect(() => {
+    if (arrPos[0] === findNumber) {
+      setTimeout(() => {
+        setIsfound(true);
+        alert(
+          ` Đã tìm thấy số ${findNumber.toString()}  sau  ${step.toString()} bước`
+        );
+      }, 200);
+    }
+  }, [findNumber]);
   // console.log(typeof findNumber, "arrPos");
   return (
     <div className="App">
