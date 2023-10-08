@@ -41,7 +41,7 @@ function App() {
       number: arrRandom[3],
       top: 100,
       left: 100,
-      valueNest: [arrRandom[9], arrRandom[10], arrRandom[11]],
+      valueNest: [arrRandom[11], arrRandom[10], arrRandom[9]],
     },
 
     { number: arrRandom[4], top: 80, left: -250, valueNest: [] },
@@ -52,12 +52,13 @@ function App() {
     // { number: 19, top: 280, left: -20, valueNest: [] },
     { number: arrRandom[8], top: 250, left: 40, valueNest: [] },
 
-    { number: arrRandom[9], top: 200, left: 250, valueNest: [] },
+    { number: arrRandom[11], top: 200, left: 250, valueNest: [] },
     { number: arrRandom[10], top: 120, left: 280, valueNest: [] },
-    { number: arrRandom[11], top: 50, left: 250, valueNest: [] },
+    { number: arrRandom[9], top: 50, left: 250, valueNest: [] },
 
     { number: arrRandom[12], top: 350, left: -100, valueNest: [] },
   ];
+  console.log(arrRandom, "arrRandom");
   const [arrPos, setArrPos] = useState([arr[0].number]);
   const [findNumber, setFindNumber] = useState();
   const [step, setStep] = useState(0);
@@ -74,13 +75,17 @@ function App() {
   useEffect(() => {
     if (arrPos.length === 0) {
       alert(`Không tìm thấy số ${findNumber} trong mảng`);
+      setStep(0);
+
       setArrPos([arr[0].number]);
     }
     if (arrPos[0] === findNumber) {
       setTimeout(() => {
         setIsfound(true);
+        setStep(0);
+
         alert(
-          ` Đã tìm thấy số ${findNumber.toString()}  sau  ${step.toString()} bước`
+          ` Đã tìm thấy số ${findNumber.toString()} sau ${step.toString()} bước`
         );
       }, 200);
       // setArrPos([arr[0].number]);
@@ -211,6 +216,37 @@ function App() {
         }}>
         Đổi số khác
       </button> */}
+      <button
+        style={{
+          marginTop: 20,
+          fontSize: 16,
+          padding: "5px 10px",
+          borderRadius: 12,
+          marginRight: 10,
+        }}
+        onClick={async () => {
+          const arrRandom = [
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+            Math.round(Math.random() * 1000),
+          ];
+          setArrRamdom(arrRandom);
+          setIsfound(false);
+          setStep(0);
+          setArrPos([arrRandom[0]]);
+        }}>
+        New Number
+      </button>
       <button
         style={{
           marginTop: 20,
